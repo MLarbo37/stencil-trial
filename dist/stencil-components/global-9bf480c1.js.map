@@ -1,0 +1,1 @@
+{"file":"global-9bf480c1.js","mappings":"MAAa,UAAU,GAAG;;;;","names":[],"sources":["./src/global/global.ts"],"sourcesContent":["export const AV_API_KEY = 'Y9XQI4CYR4FRNL8U';"],"version":3}

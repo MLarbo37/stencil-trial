@@ -1,0 +1,11 @@
+
+@import '~ol/ol.css';
+
+#map-container {
+  width: var(--map-width, 100%);
+  height: var(--map-height, 40rem);
+  border: 2px solid; 
+  border-color: var(--color-primary, red);
+}
+
+

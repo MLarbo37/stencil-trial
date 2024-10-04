@@ -1,0 +1,41 @@
+<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Stencil Component Starter</title> <style>html {
+        --color-primary: green;
+        /* --map-width: 80%; */
+        --map-height: 90vh;
+        --ol-background-color: red;
+      }
+      body {
+        font-family: sans-serif;
+      }</style> <script type="module" src="/build/stencil-components.esm.js" data-stencil></script> <script nomodule="" src="/build/stencil-components.js" data-stencil></script> </head> <body> <uc-map zoom-level="6" map-center="[10.474427892617863,51.240844622296976]"></uc-map> <script src="https://cdn.jsdelivr.net/npm/ol/dist/ol.js"></script> <script>
+      // const layer = new ol.layer.Tile({
+      //   source: new ol.source.OSM()
+      // })
+      const map = document.querySelector('uc-map');
+      // map.layer = new ol.layer.Tile({
+      //   source: new ol.source.OSM()
+      // })
+      const layerGroup = new ol.layer.Group({
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM(),
+          }),
+          new ol.layer.Tile({
+            source: new ol.source.OSM({
+              url: `https://tile-{a-c}.openstreetmap.fr/hot/{z}/{x}/{y}.png`,
+            }),
+            visible: false,
+          }),
+        ],
+      });
+
+      map.layerGroup = layerGroup;
+    </script> <script>
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  // auto-unregister service worker during dev mode
+  navigator.serviceWorker.getRegistration().then(function(registration) {
+  if (registration) {
+    registration.unregister().then(function() { location.reload(true) });
+  }
+  });
+}
+</script></body></html>
